@@ -1,0 +1,23 @@
+{
+  "name": "worksample-dotnetcore-swagger-axios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openapi:clientapp": "node ./scripts/dotnetbuild.js && cd ./ClientApp && npm run openapi:regen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishiyama0530/worksample-dotnetcore-swagger-axios.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ishiyama0530/worksample-dotnetcore-swagger-axios/issues"
+  },
+  "homepage": "https://github.com/ishiyama0530/worksample-dotnetcore-swagger-axios#readme",
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}

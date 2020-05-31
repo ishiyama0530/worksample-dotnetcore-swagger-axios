@@ -1,0 +1,102 @@
+openapi: 3.0.1
+info:
+  title: My API
+  version: v1
+paths:
+  '/Sample/{id}':
+    post:
+      tags:
+        - Sample
+      summary: ほげほげ
+      operationId: SamplePost
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ふがふが
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RequestModel'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ResponseModel'
+  /WeatherForecast:
+    get:
+      tags:
+        - WeatherForecast
+      operationId: WeatherForecastGet
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+components:
+  schemas:
+    RequestModel:
+      required:
+        - param
+      type: object
+      properties:
+        param:
+          type: string
+      additionalProperties: false
+    ResponseModel:
+      required:
+        - value
+      type: object
+      properties:
+        value:
+          type: string
+      additionalProperties: false
+    WeatherForecast:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+        temperatureC:
+          type: integer
+          format: int32
+        temperatureF:
+          type: integer
+          format: int32
+          readOnly: true
+        summary:
+          type: string
+          nullable: true
+      additionalProperties: false
